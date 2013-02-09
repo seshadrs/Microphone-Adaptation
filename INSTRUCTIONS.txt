@@ -1,0 +1,23 @@
+INSTRUCTIONS FOR MICROPHONE ADAPTATION:
+
+The code for adaptation can be found here (attached). The code is adequately commented, and should be easy to modify.The code header explains how to call every function.
+These are the steps to distort/adapt training audio(WAV format) to a microphone's channel.
+
+1.Generating Chirp file:
+- generate a chirp file using generateChirp.m. 
+
+2.Recording the chirp (refer image in parent folder):
+- Position the microphone and a reference quality single channel-speaker (high freq range preferable) as shown in the picture(attached), The microphone here is the kinect sensor. The axis of alignment passes through the microphone center and the cone center (This can be different for different requirements).
+- Add white noise markers to the chirp file at the beginning and end of the chirp using any audio editor such as Audacity. This will help later, to align the recording made with the original chirp.
+- Play the chirp file through the speaker and record the audio through the mic.
+- Align the chirp(with noise) and the recording. Remove the noise to get only the recorded portion.
+
+3.Measuring the Freq Response:
+- Get the Impulse or the ifft(frequency_response) using geth.m
+
+4.Adapting/Distorting training speech:
+- Run distortionScript.m  to distort all WAV files(recursively found) in a directory
+
+5.Training an acoustic model
+-Train a new acoustic model with Sphinx, as described here http://cmusphinx.sourceforge.net/wiki/tutorialam
+NOTE: The steps that introduce and remove noise from the chirp can be by-passed if a no-latency solution that can play and record audio is available.
