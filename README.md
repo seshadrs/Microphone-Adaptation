@@ -5,7 +5,7 @@ Matlab Scripts for modeling a microphone, distorting audio recordings to build a
 
 
 AUTHOR: Seshadri Sridharan 
-<first 7 letters of my first name> + s AT andrew.cmu.edu 
+first 7 letters of my first name + s AT andrew.cmu.edu 
 
 The folder contains all the Matlab files needed to:
 - generate a chirp file [generateChirp.m]
